@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 // ignore: must_be_immutable
 class LoginSingUpPage extends StatelessWidget {
   final String textLoginsingup;
@@ -8,8 +7,8 @@ class LoginSingUpPage extends StatelessWidget {
   final String userName;
   final String passworid;
   final VoidCallback onProsse;
-  String? emailNameInput;
-  String? passWoridInput;
+  String emailNameInput;
+  String passWoridInput;
 
   LoginSingUpPage({
     super.key,
@@ -18,8 +17,8 @@ class LoginSingUpPage extends StatelessWidget {
     required this.userName,
     required this.passworid,
     required this.onProsse,
-    this.emailNameInput,
-    this.passWoridInput,
+    required this.emailNameInput,
+    required this.passWoridInput,
   });
 
   @override
@@ -37,10 +36,10 @@ class LoginSingUpPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 74.0),
-              const Center(
+               Center(
                 child: Text(
-                  "Login Page",
-                  style: TextStyle(
+                  textLoginsingup.toString(),
+                  style: const TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -49,9 +48,9 @@ class LoginSingUpPage extends StatelessWidget {
               const SizedBox(
                 height: 26.0,
               ),
-              const Text(
-                "Username",
-                style: TextStyle(
+               Text(
+                userName.toString(),
+                style:const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -87,9 +86,9 @@ class LoginSingUpPage extends StatelessWidget {
               const SizedBox(
                 height: 23.0,
               ),
-              const Text(
-                "Passworid",
-                style: TextStyle(
+               Text(
+                passworid.toString(),
+                style:const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -140,14 +139,11 @@ class LoginSingUpPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {
-                      print("Email: $emailNameInput");
-
-                      print("PassWorid: $passWoridInput");
-                    },
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(
+                    onPressed: onProsse,
+                    child: 
+                     Text(
+                      buttonText.toString(),
+                      style:const TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                       ),

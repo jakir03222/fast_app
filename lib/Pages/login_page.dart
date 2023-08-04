@@ -5,10 +5,8 @@ import '../Widget/login_singup_page.dart';
 
 // ignore: must_be_immutable
 class LoginPage extends StatelessWidget {
-  String? emailNameInput;
-  String? passWoridInput;
-
-  LoginPage({super.key});
+  String emailNameInput = "";
+  String passWoridInput = "";
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +23,27 @@ class LoginPage extends StatelessWidget {
                 passworid: "Passworid",
                 buttonText: "Login",
                 onProsse: () async {
-                  http.Response response = await http.post(
-                      Uri.parse("https://fakestoreapi.com/auth/login"),
-                      body: {
-                        "username": emailNameInput,
-                        "password": passWoridInput,
-                      });
-                  if (response.statusCode == 200) {
-                    print(response.body);
-                    print("Login SuccesFull");
-                  } else {
-                    print("Login Faild");
+                  Future<bool> login(
+                      String emailNameInput, String passWoridInput) async {
+                    http.Response response = await http.post(
+                        Uri.parse("https://fakestoreapi.com/auth/login"),
+                        body: {
+                          "username": emailNameInput,
+                          "password": passWoridInput
+                        });
+                    if (response.statusCode == 200) {
+                      //successful login
+                      print(response.body);
+                      // String token = jsonDecode(response.body)["token"];
+
+                      //
+                    } else {
+                      //failed login
+                      print("Login Failed");
+                      ;
+                    }
+
+                    return false;
                   }
                 },
                 emailNameInput: emailNameInput,
