@@ -27,6 +27,5 @@
 //     expect(find.text('0'), findsNothing);
 //     expect(find.text('1'), findsOne);
 //   });
-// }
-  // git config --global user.email "you@example.com"
-  // git config --global user.name "Your Name"
+// git config --global user.email "jakirhossian03222@gmail.com" ,
+// git config --global user.name "jakir03222",

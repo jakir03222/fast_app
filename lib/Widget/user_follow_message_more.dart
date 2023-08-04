@@ -22,9 +22,9 @@ class UserProfile extends StatelessWidget {
             color: Colors.white, borderRadius: BorderRadius.circular(46.0)),
         child: Row(
           children: [
-            SizedBox(width: 4.0),
+           const SizedBox(width: 4.0),
             icon,
-            SizedBox(width: 8.0),
+           const SizedBox(width: 8.0),
             Text(
               text,
               style: const TextStyle(
