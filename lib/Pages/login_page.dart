@@ -1,12 +1,15 @@
+import 'package:ait_account/Go_Router/rout_magager.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import '../Provider/login_provider.dart';
 import '../Widget/login_singup_page.dart';
 
-// ignore: must_be_immutable
 class LoginPage extends StatelessWidget {
-  String emailNameInput = "";
-  String passWoridInput = "";
+  LoginPage({super.key});
+
+  final TextEditingController _usernameTextController = TextEditingController();
+  final TextEditingController _passwordTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,31 +26,19 @@ class LoginPage extends StatelessWidget {
                 passworid: "Passworid",
                 buttonText: "Login",
                 onProsse: () async {
-                  Future<bool> login(
-                      String emailNameInput, String passWoridInput) async {
-                    http.Response response = await http.post(
-                        Uri.parse("https://fakestoreapi.com/auth/login"),
-                        body: {
-                          "username": emailNameInput,
-                          "password": passWoridInput
-                        });
-                    if (response.statusCode == 200) {
-                      //successful login
-                      print(response.body);
-                      // String token = jsonDecode(response.body)["token"];
-
-                      //
-                    } else {
-                      //failed login
-                      print("Login Failed");
-                      ;
-                    }
-
-                    return false;
+                  String username = _usernameTextController.text;
+                  String password = _passwordTextController.text;
+                  bool isLoginSucceed =
+                      await Provider.of<AuthProvider>(context, listen: false)
+                          .login(username, password);
+                  if (isLoginSucceed) {
+                    context.goNamed(RouterPathManager.homePage);
+                  } else {
+                    print("Failed");
                   }
                 },
-                emailNameInput: emailNameInput,
-                passWoridInput: passWoridInput,
+                username: _usernameTextController.text,
+                passWoridInput: _passwordTextController.text,
               ),
             ],
           ),

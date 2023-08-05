@@ -1,7 +1,6 @@
 import 'package:ait_account/Go_Router/rout_magager.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import '../Widget/user_input.dart';
 
 class AddBlunceList extends StatelessWidget {

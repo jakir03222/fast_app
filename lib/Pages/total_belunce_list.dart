@@ -3,10 +3,34 @@ import 'package:ait_account/Widget/input_title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class TotalBuclansList extends StatelessWidget {
-  const TotalBuclansList({
-    super.key,
-  });
+// ignore: must_be_immutable
+class TotalBuclansList extends StatefulWidget {
+
+
+ const TotalBuclansList({super.key});
+
+  @override
+  State<TotalBuclansList> createState() => _TotalBuclansListState();
+}
+
+class _TotalBuclansListState extends State<TotalBuclansList> {
+    DateTime selectedDate = DateTime.now();
+
+    Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>?>? totla = [
@@ -102,6 +126,10 @@ class TotalBuclansList extends StatelessWidget {
                       InputTitleText(
                           text: totla[index]!["id"].toString(),
                           color: Colors.black),
+
+                      ///
+                      ///
+                      ///
                       InputTitleText(
                           text: totla[index]!["time"].toString(),
                           color: Colors.black),

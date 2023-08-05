@@ -7,7 +7,7 @@ class LoginSingUpPage extends StatelessWidget {
   final String userName;
   final String passworid;
   final VoidCallback onProsse;
-  String emailNameInput;
+  String username;
   String passWoridInput;
 
   LoginSingUpPage({
@@ -17,7 +17,7 @@ class LoginSingUpPage extends StatelessWidget {
     required this.userName,
     required this.passworid,
     required this.onProsse,
-    required this.emailNameInput,
+    required this.username,
     required this.passWoridInput,
   });
 
@@ -60,7 +60,7 @@ class LoginSingUpPage extends StatelessWidget {
               ),
               TextField(
                 onChanged: (value) {
-                  emailNameInput = value;
+                  username = value;
                 },
                 decoration: const InputDecoration(
                   filled: true,
