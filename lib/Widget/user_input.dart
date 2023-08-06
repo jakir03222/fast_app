@@ -3,15 +3,27 @@ import 'package:flutter/material.dart';
 import 'input_title_text.dart';
 
 class UserInputFrom extends StatefulWidget {
+  const UserInputFrom({super.key});
+
   @override
   State<UserInputFrom> createState() => _UserInputFromState();
 }
 
 class _UserInputFromState extends State<UserInputFrom> {
-  TextEditingController sirNamer = TextEditingController();
+  TimeOfDay _selectedTime = TimeOfDay.now();
 
-  TextEditingController credit = TextEditingController();
-  TextEditingController devit = TextEditingController();
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: _selectedTime,
+    );
+
+    if (picked != null && picked != _selectedTime) {
+      setState(() {
+        _selectedTime = picked;
+      });
+    }
+  }
 
   @override
   build(BuildContext context) {
@@ -21,43 +33,51 @@ class _UserInputFromState extends State<UserInputFrom> {
         const SizedBox(height: 14.0),
         InputTitleText(text: "SL Number", color: Colors.black54),
         const SizedBox(height: 14.0),
-        TextField(
-          controller: sirNamer,
-          decoration: const InputDecoration(
+        const TextField(
+          decoration: InputDecoration(
               hintText: 'SL Number', border: OutlineInputBorder()),
         ),
         const SizedBox(height: 14.0),
+        Row(
+          children: [
+            IconButton(
+              onPressed: () => _selectTime(context),
+              icon: Image.asset(
+                "assets/time_image.png",
+              ),
+              iconSize: 84.0,
+            ),
+            Text(
+              '${_selectedTime.hour} : ${_selectedTime.minute}',
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
         const SizedBox(height: 14.0),
         InputTitleText(
           text: "Credit",
           color: Colors.black54,
         ),
         const SizedBox(height: 14.0),
-        TextField(
-          controller: credit,
-          decoration: const InputDecoration(
-              hintText: 'Credit', border: OutlineInputBorder()),
+        const TextField(
+          decoration:
+              InputDecoration(hintText: 'Credit', border: OutlineInputBorder()),
         ),
         const SizedBox(height: 14.0),
-         InputTitleText(
+        InputTitleText(
           text: "Debit",
           color: Colors.black45,
         ),
         const SizedBox(height: 14.0),
-        TextField(
-          controller: devit,
-          decoration: const InputDecoration(
-              hintText: 'Debit', border: OutlineInputBorder()),
+        const TextField(
+          decoration:
+              InputDecoration(hintText: 'Debit', border: OutlineInputBorder()),
         ),
-        const SizedBox(height: 8.0),
+        const SizedBox(height: 28.0),
         Center(
           child: ElevatedButton(
-            child: const Text('Submit'),
-            onPressed: () {
-              print("SL Number ${sirNamer.text}");
-              print("Credit: ${credit.text}");
-              print("Debit: ${devit.text}");
-            },
+            child:  const Text('Submit'),
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
                 shape: BeveledRectangleBorder(
                     borderRadius: BorderRadius.circular(24.0)),

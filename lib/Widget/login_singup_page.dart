@@ -1,4 +1,6 @@
+import 'package:ait_account/Go_Router/rout_magager.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 // ignore: must_be_immutable
 class LoginSingUpPage extends StatelessWidget {
@@ -36,7 +38,7 @@ class LoginSingUpPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 74.0),
-               Center(
+              Center(
                 child: Text(
                   textLoginsingup.toString(),
                   style: const TextStyle(
@@ -48,9 +50,9 @@ class LoginSingUpPage extends StatelessWidget {
               const SizedBox(
                 height: 26.0,
               ),
-               Text(
+              Text(
                 userName.toString(),
-                style:const TextStyle(
+                style: const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -86,9 +88,9 @@ class LoginSingUpPage extends StatelessWidget {
               const SizedBox(
                 height: 23.0,
               ),
-               Text(
+              Text(
                 passworid.toString(),
-                style:const TextStyle(
+                style: const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -125,10 +127,10 @@ class LoginSingUpPage extends StatelessWidget {
                 height: 24.0,
               ),
               Center(
-                  child: SizedBox(
-                height: 40.0,
-                width: double.infinity,
-                child: ElevatedButton(
+                child: SizedBox(
+                  height: 40.0,
+                  width: double.infinity,
+                  child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateColor.resolveWith(
                           (states) => Colors.black),
@@ -140,15 +142,45 @@ class LoginSingUpPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: onProsse,
-                    child: 
-                     Text(
+                    child: Text(
                       buttonText.toString(),
-                      style:const TextStyle(
+                      style: const TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                       ),
-                    )),
-              ))
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10.0),
+              Center(
+                child: SizedBox(
+                  height: 40.0,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateColor.resolveWith(
+                          (states) => Colors.black),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: const BorderSide(color: Colors.red),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      context.goNamed(RouterPathManager.singupPage);
+                    },
+                    child: const Text(
+                      "Singpu",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -1,8 +1,7 @@
 import 'package:ait_account/Go_Router/rout_magager.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
-import '../Provider/login_provider.dart';
+import 'package:http/http.dart' as http;
 import '../Widget/login_singup_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -26,15 +25,11 @@ class LoginPage extends StatelessWidget {
                 passworid: "Passworid",
                 buttonText: "Login",
                 onProsse: () async {
-                  String username = _usernameTextController.text;
-                  String password = _passwordTextController.text;
-                  bool isLoginSucceed =
-                      await Provider.of<AuthProvider>(context, listen: false)
-                          .login(username, password);
-                  if (isLoginSucceed) {
-                    context.goNamed(RouterPathManager.homePage);
-                  } else {
-                    print("Failed");
+                  context.goNamed(RouterPathManager.homePage);
+                  http.Response response = await http
+                      .get(Uri.parse("https://dummyjson.com/products"));
+                  if (response.statusCode == 200) {
+                    print(response.body);
                   }
                 },
                 username: _usernameTextController.text,
