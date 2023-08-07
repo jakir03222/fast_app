@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePageItem extends StatelessWidget {
   const HomePageItem({
@@ -8,17 +9,17 @@ class HomePageItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Column(
         children: [
-          const SizedBox(
-            height: 44.0,
+          SizedBox(
+            height: 44.h,
           ),
           Card(
-            elevation: 1,
+            elevation: 0.8,
             child: Container(
-              height: 240,
-              width: 200.0,
+              height: 240.h,
+              width: double.infinity,
               decoration: BoxDecoration(
                   color: Colors.red, borderRadius: BorderRadius.circular(14.0)),
               child: Image.asset(

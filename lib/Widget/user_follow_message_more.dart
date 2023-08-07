@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserProfile extends StatelessWidget {
   final Icon icon;
@@ -16,19 +16,19 @@ class UserProfile extends StatelessWidget {
     return Card(
       elevation: 0,
       child: Container(
-        height: 40.0,
-        width: 110.0,
+        height: 40.h,
+        width: 100.w,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(46.0)),
         child: Row(
           children: [
-           const SizedBox(width: 4.0),
+            SizedBox(width: 8.w),
             icon,
-           const SizedBox(width: 8.0),
+            SizedBox(width: 8.w),
             Text(
               text,
-              style: const TextStyle(
-                fontSize: 16.0,
+              style: TextStyle(
+                fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
               ),
             )

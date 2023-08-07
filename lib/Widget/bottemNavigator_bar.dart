@@ -1,9 +1,11 @@
-import 'package:ait_account/Go_Router/rout_magager.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class  BottemNavigator_bar extends StatelessWidget {
-  const BottemNavigator_bar({super.key});
+import '../path_manager/pathate_manager.dart';
+
+class  BottemNavigatorbar extends StatelessWidget {
+  const BottemNavigatorbar({super.key});
 
   @override
   Widget build(BuildContext context) {

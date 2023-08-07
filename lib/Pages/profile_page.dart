@@ -1,7 +1,7 @@
 import 'package:ait_account/Widget/web_information.dart';
 import 'package:ait_account/Widget/web_information2.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Widget/user_profile_info.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -9,16 +9,17 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white.withOpacity(0.5),
-      body: SafeArea(
-        child: Padding(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white.withOpacity(0.5),
+        body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
-            height: 800.0,
+            height: 700.h,
             width: double.infinity,
             child: Column(
               children: [
+                const SizedBox(height: 8.0),
                 const UserProfileInfo(
                   image: "assets/ceo_sir.jpg",
                   email: "shakirahmad84@gmail.com",
@@ -27,10 +28,11 @@ class ProfilePage extends StatelessWidget {
                   descopson:
                       "A chief executive officer (CEO) is the highest-ranking executive in a company. Broadly speaking, a chief executive officer’s primary responsibilities include making major corporate decisions.",
                 ),
+                const SizedBox(height: 10.0),
                 Expanded(
-                  flex: 3,
+                  flex: 4,
                   child: Container(
-                    height: 200.0,
+                    height: 300.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.8),
@@ -41,24 +43,24 @@ class ProfilePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const SizedBox(
-                            height: 40.0,
+                          SizedBox(
+                            height: 40.h,
                           ),
                           Text(
                             "Information",
                             style: TextStyle(
-                                fontSize: 24.0,
+                                fontSize: 24.sp,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black.withOpacity(0.8)),
                           ),
-                          const SizedBox(height: 20.0),
+                          SizedBox(height: 20.h),
                           const WebInformastion(
                             image: "assets/website_icon.png",
                             text: "Website",
                             websitelink: "www.shakir_ahmad.com",
                           ),
-                          const SizedBox(
-                            height: 8.0,
+                          SizedBox(
+                            height: 8.h,
                           ),
                           const WebInformastion2(
                             icon: Icon(
@@ -91,6 +93,21 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
+                // ElevatedButton(
+                //     onPressed: () async {
+                //       SharedPreferences sharedPreferences =
+                //           await SharedPreferences.getInstance();
+
+                //       TokenDatasource tokenDatasource =
+                //           TokenDatasource(sharedPreferences);
+                //       if (await tokenDatasource.delete()) {
+                //         print("Logged Out");
+                //       } else {
+                //         print("Logging out failed");
+                //       }
+                //       context.goNamed(RouterPathManager.loginPage);
+                //     },
+                //     child: Text("LogOut"))
               ],
             ),
           ),

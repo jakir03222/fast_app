@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'input_title_text.dart';
 
@@ -30,14 +31,14 @@ class _UserInputFromState extends State<UserInputFrom> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 14.0),
+        SizedBox(height: 14.h),
         InputTitleText(text: "SL Number", color: Colors.black54),
-        const SizedBox(height: 14.0),
+        SizedBox(height: 14.h),
         const TextField(
           decoration: InputDecoration(
               hintText: 'SL Number', border: OutlineInputBorder()),
         ),
-        const SizedBox(height: 14.0),
+        SizedBox(height: 14..h),
         Row(
           children: [
             IconButton(
@@ -53,39 +54,41 @@ class _UserInputFromState extends State<UserInputFrom> {
             ),
           ],
         ),
-        const SizedBox(height: 14.0),
+        SizedBox(height: 14.h),
         InputTitleText(
           text: "Credit",
           color: Colors.black54,
         ),
-        const SizedBox(height: 14.0),
+        SizedBox(height: 14.h),
         const TextField(
-          decoration:
-              InputDecoration(hintText: 'Credit', border: OutlineInputBorder()),
+          decoration: InputDecoration(
+            hintText: 'Credit',
+            border: OutlineInputBorder(),
+          ),
         ),
-        const SizedBox(height: 14.0),
+        SizedBox(height: 14.h),
         InputTitleText(
           text: "Debit",
           color: Colors.black45,
         ),
-        const SizedBox(height: 14.0),
+        SizedBox(height: 14.h),
         const TextField(
           decoration:
               InputDecoration(hintText: 'Debit', border: OutlineInputBorder()),
         ),
-        const SizedBox(height: 28.0),
+        SizedBox(height: 28.h),
         Center(
           child: ElevatedButton(
-            child:  const Text('Submit'),
+            child: Text('Submit'),
             onPressed: () {},
             style: ElevatedButton.styleFrom(
                 shape: BeveledRectangleBorder(
-                    borderRadius: BorderRadius.circular(24.0)),
+                    borderRadius: BorderRadius.circular(24.r)),
                 backgroundColor: Colors.purple,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 textStyle:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                    TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold)),
           ),
         ),
       ],

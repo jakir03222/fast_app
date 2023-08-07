@@ -1,5 +1,6 @@
 import 'package:ait_account/Widget/user_follow_message_more.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserProfileInfo extends StatelessWidget {
   final String image;
@@ -18,23 +19,23 @@ class UserProfileInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 5,
+      flex: 7,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
         child: Container(
           decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(18.0)),
+              borderRadius: BorderRadius.circular(18.r)),
           child: Stack(
             children: [
               Column(
                 children: [
                   Container(
-                    height: 100.0,
+                    height: 100.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.black,
-                        borderRadius: BorderRadius.circular(14.0)),
+                        borderRadius: BorderRadius.circular(14.r)),
                   ),
                 ],
               ),
@@ -43,7 +44,7 @@ class UserProfileInfo extends StatelessWidget {
                 bottom: 300,
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
-                  radius: 50.0,
+                  radius: 50.r,
                   backgroundImage: AssetImage(image),
                 ),
               ),
@@ -52,23 +53,23 @@ class UserProfileInfo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 140.0,
+                    SizedBox(
+                      height: 120.r,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Text(
                         email,
-                        style: const TextStyle(
-                            fontSize: 24.0,
+                        style: TextStyle(
+                            fontSize: 20.sp,
                             color: Colors.black54,
                             fontWeight: FontWeight.normal),
                       ),
                     ),
                     Text(
                       name,
-                      style: const TextStyle(
-                        fontSize: 24.0,
+                      style: TextStyle(
+                        fontSize: 24.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
@@ -95,14 +96,14 @@ class UserProfileInfo extends StatelessWidget {
                       child: Text(
                         descopson,
                         style: TextStyle(
-                            fontSize: 20.0,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.w700,
                             color: Colors.black.withOpacity(0.5)),
                       ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
