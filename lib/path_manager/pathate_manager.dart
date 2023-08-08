@@ -1,8 +1,8 @@
 abstract class RouterPathManager {
-  static String homePage = "/";
+  static String loginPage = '/';
   static String singupPage = "singupPage";
   static String profilePage = "profilepage";
   static String addBelunce = "addbelunce";
-  static String loginPage = 'loginpage';
+    static String homePage = "homepage";
   static String totlabulancepage = 'totalbulance';
 }

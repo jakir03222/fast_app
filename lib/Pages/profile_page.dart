@@ -2,7 +2,11 @@ import 'package:ait_account/Widget/web_information.dart';
 import 'package:ait_account/Widget/web_information2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../DataSources/token_data_source.dart';
 import '../Widget/user_profile_info.dart';
+import '../path_manager/pathate_manager.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -93,21 +97,24 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                // ElevatedButton(
-                //     onPressed: () async {
-                //       SharedPreferences sharedPreferences =
-                //           await SharedPreferences.getInstance();
+                ElevatedButton(
+                    onPressed: () async {
+                      //
 
-                //       TokenDatasource tokenDatasource =
-                //           TokenDatasource(sharedPreferences);
-                //       if (await tokenDatasource.delete()) {
-                //         print("Logged Out");
-                //       } else {
-                //         print("Logging out failed");
-                //       }
-                //       context.goNamed(RouterPathManager.loginPage);
-                //     },
-                //     child: Text("LogOut"))
+                      SharedPreferences sharedPreferences =
+                          await SharedPreferences.getInstance();
+
+                      TokenDatasource tokenDatasource =
+                          TokenDatasource(sharedPreferences);
+
+                      if (await tokenDatasource.delete()) {
+                        print("Logged Out");
+                      } else {
+                        print("Logging out failed");
+                      }
+                      context.goNamed(RouterPathManager.loginPage);
+                    },
+                    child: Text("LogOut"))
               ],
             ),
           ),

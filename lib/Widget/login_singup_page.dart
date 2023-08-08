@@ -153,7 +153,7 @@ class LoginSingUpPage extends StatelessWidget {
                           String passworld = _passworldEditingController.text;
                           print("Email: $email or Passworld: $passworld");
                           // bool isLoginSuccess =
-                          //     await authProvider.login(email, passworld);
+                          //     await authProvider.login(email, passworlS
 
                           bool isLoginSuccess = await Provider.of<AuthProvider>(
                                   context,

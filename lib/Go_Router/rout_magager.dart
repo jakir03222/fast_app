@@ -1,7 +1,6 @@
 import 'package:ait_account/Pages/home_page.dart';
 import 'package:ait_account/Pages/login_page.dart';
 import 'package:ait_account/Pages/sinup_page.dart';
-import 'package:ait_account/midelawaer/auth_midele_ware.dart';
 import 'package:flutter/material.dart';
 import 'package:ait_account/Pages/add_belunce.dart';
 import 'package:ait_account/Pages/profile_page.dart';
@@ -13,17 +12,16 @@ class RoutManager {
   static final GoRouter routerCronfagmanager = GoRouter(
     routes: <RouteBase>[
       GoRoute(
-        name: RouterPathManager.homePage,
-        path: RouterPathManager.homePage,
+        name: RouterPathManager.loginPage,
+        path: RouterPathManager.loginPage,
         builder: (BuildContext context, GoRouterState state) =>
-            const HomePage(),
-        redirect: (context, state) => AuthMiddleware.guardWithLogin(),
+            const LoginPage(),
         routes: <RouteBase>[
           GoRoute(
-            path: RouterPathManager.loginPage,
-            name: RouterPathManager.loginPage,
+            path: RouterPathManager.homePage,
+            name: RouterPathManager.homePage,
             builder: (BuildContext context, GoRouterState state) =>
-                const LoginPage(),
+                const HomePage(),
             routes: [
               GoRoute(
                 path: RouterPathManager.addBelunce,
@@ -60,5 +58,3 @@ class RoutManager {
     ],
   );
 }
-
-

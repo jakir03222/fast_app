@@ -1,7 +1,6 @@
 import 'package:ait_account/Widget/user_follow_message_more.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class UserProfileInfo extends StatelessWidget {
   final String image;
   final String email;
